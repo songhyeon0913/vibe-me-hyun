@@ -1,3 +1,238 @@
+/* 어그로체(Aggravo) 라이트 웨이트를 불러온다 */
+@font-face {
+    font-family: 'Aggravo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+
+/* 어그로체(Aggravo) 미디엄 웨이트를 불러온다 */
+@font-face {
+    font-family: 'Aggravo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroM.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+
+/* 어그로체(Aggravo) 볼드 웨이트를 불러온다 */
+@font-face {
+    font-family: 'Aggravo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* 모든 요소의 박스 모델·여백을 초기화한다 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 브랜드·텍스트·배경 등 색상을 변수로 모아 둔다 */
+:root {
+    --brand: #2f59c4;
+    --brand-hover: #2554ca;
+    --bg: #c8d9f5;
+    --card: #f6f6f8;
+    --text: #030303;
+    --muted: #888888;
+    --shadow: 0 12px 40px rgba(108, 92, 231, 0.12);
+}
+
+/* 드래그로 글자를 선택했을 때 배경색을 브랜드색으로 바꾼다 */
+::selection {
+    background: var(--brand);
+    color: #fff;
+}
+
+/* 페이지 배경색을 칠하고 기본 글꼴을 어그로체로 둔다 */
 body {
-    background: #453298;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Aggravo', sans-serif;
+    font-weight: 300;
+    line-height: 2.1;
+}
+
+/* 카드가 아래에서 부드럽게 떠오르며 등장한다 */
+@keyframes card-in {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 명함 카드의 배경, 패딩, 둥근 모서리, 그림자를 넣는다 */
+.card {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 32px;
+    background: var(--card);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    animation: card-in 0.7s ease both;
+}
+
+/* 프로필 사진을 원형으로 자르고 살짝 위로 올린다 */
+.avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    transform: translateY(-8px);
+}
+
+/* 이름(h1) 크기를 키우고 하마 아이콘과 높이를 맞춘다 */
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* 하마 아이콘 크기를 이름 글자와 맞춘다 */
+h1 .fa-hippo {
+    font-size: 0.9em;
+    line-height: 1;
+}
+
+/* Dongle 폰트 라이트 스타일을 적용한다 */
+.dongle-light {
+    font-family: "Dongle", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Dongle 폰트 레귤러 스타일을 적용한다 */
+.dongle-regular {
+    font-family: "Dongle", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Dongle 폰트 볼드 스타일을 이름에 적용한다 */
+.dongle-bold {
+    font-family: "Dongle", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* 역할(.role)을 소개글과 같은 크기로 맞춘다 */
+.role {
+    font-size: 16px;
+    color: var(--muted);
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* 소개(.bio) 본문 크기와 줄간격을 정한다 */
+.bio {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 2px;
+}
+
+/* 링크 목록을 가로 한 줄로 배치한다 */
+.links {
+    display: flex; /* 링크들을 가로 flex 행으로 만든다 */
+    justify-content: center; /* 링크 묶음을 카드 안에서 가운데 맞춘다 */
+    gap: 20px; /* 링크 사이 간격을 margin 대신 gap으로 둔다 */
+    margin-top: 20px;
+}
+
+/* 링크 색을 브랜드색으로 맞추고 밑줄을 제거한다 */
+.links a {
+    color: var(--brand);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+/* 링크에 마우스를 올리면 더 진한 브랜드색으로 바꾼다 */
+.links a:hover {
+    color: var(--brand-hover);
+}
+
+/* 버튼에 브랜드색 배경을 주고 가운데 정렬한다 */
+.btn {
+    display: block;
+    margin: 24px auto 0;
+    background: var(--brand);
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                transform 0.15s ease,
+                box-shadow 0.15s ease;
+}
+
+/* 버튼에 마우스를 올리면 배경색·그림자·위치를 바꾼다 */
+.btn:hover {
+    background: var(--brand-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(5, 74, 247, 0.3);
+}
+
+/* 푸터 글자를 작게·흐리게 표시한다 */
+footer {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 20px;
+}
+
+/* 모달 오버레이: 숨긴 뒤 부드럽게 페이드인되도록 준비한다 */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* 모달이 열리면 보이게 한다 */
+.modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* 모달 박스: 살짝 아래에서 떠오르며 나타난다 */
+.modal__box {
+    width: 300px;
+    padding: 32px;
+    background: #fff;
+    border-radius: 20px;
+    text-align: center;
+    transform: translateY(16px) scale(0.96);
+    transition: transform 0.3s ease;
+}
+
+/* 열린 모달의 박스를 제자리로 올린다 */
+.modal.is-open .modal__box {
+    transform: translateY(0) scale(1);
+}
+
+.modal__box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
