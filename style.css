@@ -71,32 +71,41 @@ body {
     }
 }
 
-/* 명함 카드의 배경, 패딩, 둥근 모서리, 그림자를 넣는다 */
+/* 명함 카드를 가로로 길게 키운다 */
 .card {
     width: 100%;
-    max-width: 420px;
-    padding: 40px 32px;
+    max-width: 780px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding: 52px 56px;
     background: var(--card);
-    border-radius: 24px;
+    border-radius: 28px;
     box-shadow: var(--shadow);
     animation: card-in 0.7s ease both;
 }
 
-/* 프로필 사진을 원형으로 자르고 살짝 위로 올린다 */
+/* 카드 오른쪽 텍스트·버튼 영역을 세로로 쌓는다 */
+.card__content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 프로필 사진을 원형으로 키운다 */
 .avatar {
-    width: 96px;
-    height: 96px;
+    width: 148px;
+    height: 148px;
+    flex-shrink: 0;
     border-radius: 50%;
     object-fit: cover;
-    transform: translateY(-8px);
 }
 
 /* 이름(h1) 크기를 키우고 하마 아이콘과 높이를 맞춘다 */
 h1 {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 48px;
+    gap: 10px;
+    font-size: 68px;
     font-weight: 700;
     line-height: 1;
 }
@@ -130,30 +139,33 @@ h1 .fa-hippo {
 
 /* 역할(.role)을 소개글과 같은 크기로 맞춘다 */
 .role {
-    font-size: 16px;
+    font-size: 22px;
+    font-weight: 500;
     color: var(--muted);
-    margin-top: 10px;
+    margin-top: 12px;
     line-height: 1.6;
 }
 
 /* 소개(.bio) 본문 크기와 줄간격을 정한다 */
 .bio {
-    font-size: 16px;
+    font-size: 22px;
+    font-weight: 500;
     line-height: 1.6;
-    margin-top: 2px;
+    margin-top: 4px;
 }
 
 /* 링크 목록을 가로 한 줄로 배치한다 */
 .links {
-    display: flex; /* 링크들을 가로 flex 행으로 만든다 */
-    justify-content: center; /* 링크 묶음을 카드 안에서 가운데 맞춘다 */
-    gap: 20px; /* 링크 사이 간격을 margin 대신 gap으로 둔다 */
-    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 28px;
+    margin-top: 24px;
 }
 
 /* 링크 색을 브랜드색으로 맞추고 밑줄을 제거한다 */
 .links a {
     color: var(--brand);
+    font-size: 20px;
     font-weight: 700;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -164,16 +176,16 @@ h1 .fa-hippo {
     color: var(--brand-hover);
 }
 
-/* 버튼에 브랜드색 배경을 주고 가운데 정렬한다 */
+/* 버튼에 브랜드색 배경을 준다 */
 .btn {
-    display: block;
-    margin: 24px auto 0;
+    display: inline-block;
+    margin-top: 28px;
     background: var(--brand);
     color: #fff;
     font-family: inherit;
-    font-size: 14px;
+    font-size: 18px;
     border: none;
-    padding: 12px 24px;
+    padding: 14px 32px;
     border-radius: 999px;
     cursor: pointer;
     transition: background 0.2s ease,
@@ -190,9 +202,9 @@ h1 .fa-hippo {
 
 /* 푸터 글자를 작게·흐리게 표시한다 */
 footer {
-    font-size: 13px;
+    font-size: 16px;
     color: var(--muted);
-    margin-top: 20px;
+    margin-top: 24px;
 }
 
 /* 모달 오버레이: 숨긴 뒤 부드럽게 페이드인되도록 준비한다 */
