@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://songhyeon0913.github.io/vibe-me-hyun/sitemap.xml
