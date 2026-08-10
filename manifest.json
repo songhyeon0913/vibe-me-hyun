@@ -1,0 +1,12 @@
+{
+  "name": "이송현 · 바이브 미",
+  "short_name": "바이브미",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#d7e5fb",
+  "theme_color": "#2f59c4",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
